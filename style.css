@@ -1,5 +1,5 @@
 :root {
-    --color-de-fondo: #F5F5F5;
+    --color-de-fondo: #ADD8E6;
     --color-de-fondo-menu: #ffffff;
     --color-de-link: #000000;
 }
@@ -25,7 +25,7 @@ a {
 /* ------------------------------ Sección Menú -------------------------------*/
 .cabecera {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 1rem;
     background-color: var(--color-de-fondo-menu);
@@ -48,6 +48,19 @@ a {
     font-size: 0.9rem;
 }
 /* ------------------------------ Sección Presentación ------------------------------*/
+.presentacion > img {
+    width: 100%;
+}
+
+.presentacion__contenedor > ul{
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+
+}
+
+
+
 .presentacion {
   
   height: 0; /* Comienza con altura 0 */
@@ -56,7 +69,7 @@ a {
 }
 
 .presentacion {
-  height: 40em; /* Ajusta este valor según el tamaño del contenido */
+  height: 33em; /* Ajusta este valor según el tamaño del contenido */
 }
 
 /* Puedes agregar esta animación si quieres que se vea más fluido */
@@ -65,7 +78,7 @@ a {
     height: 0;
   }
   to {
-    height:40em; /* O el valor que necesites */
+    height:33em; /* O el valor que necesites */
   }
 }
 
@@ -75,37 +88,60 @@ a {
   justify-content: space-around;
   align-content: center;
 }
+.redes > li:hover{
+  font-style: #f2f2f2;
+  cursor: pointer;
+}
+.redes > li:hover > a {
+  font-style: #008f30;
+  text-decoration: none;
+}
+
 
 /* ------------------------------ Sección sobre mí ----------------------------------*/
-.sobre-mi {
-  background-color: gray;
+.sobre-mi > h2 {
+  font-weight: 200;
 }
 
 .sobre-mi {
-  width: 0;
-  overflow: hidden;
+  background-color: #b5e2d3;
+  border-radius: 10px; /* Redondear las esquinas */
+  padding: 20px; /* Espacio interno */
+  width: 400px; /* Ancho del elemento */
+  height: 300px; /* Alto del elemento */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  transform: rotateX(10deg) rotateY(10deg); /* Rotar el elemento para dar un efecto 3D */
+  transition: transform 0.5s; /* Transición para dar un efecto suave */
   opacity: 0;
-  transform: translateX(-100%);
-  animation-delay: 20s;
-  animation: desplegarLateral 3s ease-in-out forwards;
+  animation: aparecer 0.5s forwards; /* Animación de aparición */
 }
 
-@keyframes desplegarLateral {
+
+
+.sobre-mi {
+  opacity: 0; /* Elementos invisibles inicialmente */
+  animation: aparecer 0.5s forwards; /* Animación de aparición */
+}
+
+@keyframes aparecer {
   0% {
-    width: 0;
     opacity: 0;
-    transform: translateX(-100%);
-  }
-  50% {
-    width: auto;
-    opacity: 0;
-    transform: translateX(-100%);
   }
   100% {
-    width: auto;
     opacity: 1;
-    transform: translateX(0);
   }
+}
+
+.sobre-mi:hover .sobre-mi:nth-child(1) {
+  animation-delay: 0s; /* Elemento 1 aparece inmediatamente */
+}
+
+.sobre-mi:hover .sobre-mi:nth-child(2) {
+  animation-delay: 0.5s; /* Elemento 2 aparece después de 0.5 segundos */
+}
+
+.sobre-mi:hover .sobre-mi:nth-child(3) {
+  animation-delay: 1s; /* Elemento 3 aparece después de 1 segundo */
 }
 
 
@@ -114,38 +150,168 @@ a {
 .habilidades {
   display: flex;
   flex-direction: column;
+}
+
+.habilidades  > h2 {
+  display: flex;
+  text-align: center;
+  align-items: center;
+
+}
+
+
+.habilidades__lista {
+
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 
 }
 
-.habilidades__lista {
+
+.habilidades__elemento {
+  flex-basis:  calc(50% - 20px);
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  gap: 2em;
   
+}
+
+
+.habilidades__elemento > img {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px 10px 0
+}
+
+.habilidades__elemento > p {
+  padding: 20px;
+  text-align: center;
+
+}
+
+
+
+
+.habilidades__elemento {
+  /* ... */
+  transition: all 0.3s ease-in-out;
+}
+
+.habilidades__elemento:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  background-color:#87dfeb;
+
 }
 
 
 .habilidades__elemento {
+  transform: scale(1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: #adb6e6;
+
+}
+
+/*------------------------------ Sección de Aficiones --------------------------------*/
+.aficiones {
   display: flex;
   flex-direction: column;
+}
+
+.aficiones__lista {
+  
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
   
 }
 
 
-.habilidades__elemento > p {
+.aficiones__elemento {
+  flex-basis:  calc(50% - 20px);
+  margin: 10px;
+  background-color: #cfade6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.aficiones__elemento > img {
+width: auto;
+height: auto;
+object-fit: cover;
+border-radius: 10px 10px 0
+
+}
+
+.aficiones__elemento > p {
   text-align: center;
 }
 
-/*------------------------------ Sección de Aficiones --------------------------------*/
 
+.aficiones__elemento {
+  /* ... */
+  transition: all 0.3s ease-in-out;
+}
+
+.aficiones__elemento:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  background-color: #87dfeb;
+
+}
+
+
+.aficiones__elemento {
+  transform: scale(1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: #adb6e6;
+
+}
 
 /*------------------------------ Sección de Proyectos --------------------------------*/
 
 
 /*------------------------------ Sección de Contacto ---------------------------------*/
+.contactos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+.contacto__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
 
+.contacto__boton{
+  width: 30%;
+
+  background-color: #0d3338;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 5px;
+  
+}
+
+.contacto__formulario > button {
+  align-items: center;
+}
 
 /* ------------------------------ Responsividad ---------------------------------------*/
 
